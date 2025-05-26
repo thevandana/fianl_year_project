@@ -1,0 +1,30 @@
+{% extends 'showall.html' %}
+
+{% block content %}
+    <br><br><br>
+    <h3>Avilable Category</h3>
+    <li>
+        {%for i in category%}
+        <ul><b> >>> {{i}}</b></ul>
+        {%endfor%}
+    </li>
+
+
+    <form class="form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+          <div class="imgcontainer">
+            <h1>Add Category</h1>
+          </div>
+
+          <div class="container">
+
+            <input type="text" placeholder="Category Name" value="{{data.0.title}}" name="cat" required>
+
+            <textarea id="message" placeholder="Decriptions" name="des" cols="30" rows="5" value="{{data.0.des}}" class="form-control">{{data.0.des}}</textarea>
+            <button class="login" type="submit">Add>> </button>
+
+          </div>
+        </form>
+
+
+{% endblock %}

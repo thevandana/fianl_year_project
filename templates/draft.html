@@ -1,0 +1,35 @@
+
+{% extends 'showall.html' %}
+
+{% block content %}
+
+<h1 style="text-align: center; position : relative; top :30px;">Draft</h1>
+<table class="table table-striped table-dark " id="all">
+  <thead>
+    <tr>
+      <th scope="col">Post id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for post in posts %}
+    <tr>
+        <td>{{post.id}}</td>
+        <td>{{post.title}}</td>
+        <td><a href="http://127.0.0.1:8000/draftdelete/{{post.id}}">Delete</a></td>
+        <td><a href="http://127.0.0.1:8000/edit/{{post.id}}">Edit</a></td>
+    </tr>
+{% endfor %}
+      <tr>
+          <td class="create" colspan="4"><a href="http://127.0.0.1:8000/createpost/">create Post</a></td>
+
+      </tr>
+
+  </tbody>
+</table>
+
+
+
+{% endblock %}
